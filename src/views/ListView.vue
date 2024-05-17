@@ -61,18 +61,16 @@ export default {
         } = await supabase.auth.getUser();
         if (errUser) {
           alert("Please login first");
-          window.location.href = "https://app.balramadan.xyz";
         } else {
           this.users = user;
-          this.user_id = user.id;
-          console.log(this.users);
+          this.user_id = user.id
         }
         // eslint-disable-next-line no-unused-vars
-        let { data, error } = await supabase
+        let { data: dataNotes, error } = await supabase
           .from("notes")
           .select("*")
           .eq("user_id", this.user_id);
-        this.data = data;
+        this.data = dataNotes;
       };
     } catch (error) {
       console.log(error);

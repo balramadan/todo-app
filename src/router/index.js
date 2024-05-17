@@ -22,6 +22,11 @@ const router = createRouter({
       name: 'list',
       component: ListView
     },
+    {
+      path: '/logout',
+      name: 'logoutcom',
+      component: () => import('../components/LogoutCom.vue')
+    }
     // {
     //   path: '/verify',
     //   name: 'verify',

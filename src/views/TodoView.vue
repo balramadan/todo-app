@@ -7,7 +7,10 @@
       class="container-todo flex flex-col mx-auto justify-center items-center"
     >
       <h1 class="text-4xl font-bold">
-        <span v-if="full_name != null" class="text-sky-500">{{ full_name }}</span> Notes
+        <span v-if="full_name != null" class="text-sky-500">{{
+          full_name
+        }}</span>
+        Notes
       </h1>
       <div class="my-4">
         <form class="flex flex-row shadow-sm" @submit.prevent="addTodo">
@@ -57,7 +60,7 @@
 </template>
 <script>
 // import { RouterLink } from "vue-router";
-import supabase from "../lib/supabase";
+import supabase from "@/lib/supabase";
 
 export default {
   data() {
@@ -95,17 +98,18 @@ export default {
     this.copyright = date.getFullYear();
 
     window.onload = async () => {
-      // eslint-disable-next-line no-unused-vars
-      const { data: { user }, error } = await supabase.auth.getUser()
-      if(error){
-        alert("Please login first")
-        window.location.href = "https://app.balramadan.xyz"
+      const {
+        data: { user },
+        error: errUser,
+      } = await supabase.auth.getUser();
+      if (errUser) {
+        alert("Please login first");
+        window.location.href = "http://app.balramadan.xyz/loginTodo";
       } else {
-        this.users = user
-        this.full_name = user.user_metadata.full_name
-        console.log(this.users)
+        this.users = user;
+        this.full_name = user.user_metadata.full_name;
       }
-    }
+    };
   },
   components: {
     // RouterLink,
