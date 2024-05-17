@@ -29,9 +29,9 @@
             />
           </div>
           <div class="flex flex-col">
-            <RouterLink to="/list"
+            <a
               class="flex h-10 w-full py-1 mx-auto justify-center items-center rounded-tr-lg text-white text-center bg-sky-300 hover:bg-sky-500"
-              href=""
+              href="/list"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -42,7 +42,7 @@
                   fill="currentColor"
                   d="M14 3v2h3.59l-9.83 9.83l1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"
                 /></svg
-            ></RouterLink>
+            ></a>
             <input
               class="py-2 px-3 h-full rounded-br-lg bg-gradient-to-r from-sky-300 to-sky-400 hover:from-sky-500 hover:to-sky-600 transition-colors duration-300 text-white font-bold hover:cursor-pointer"
               type="submit"
@@ -58,7 +58,7 @@
   </div>
 </template>
 <script>
-import { RouterLink } from "vue-router";
+// import { RouterLink } from "vue-router";
 import supabase from "@/lib/supabase";
 
 export default {
@@ -111,7 +111,7 @@ export default {
     };
   },
   components: {
-    RouterLink,
+    // RouterLink,
   },
 };
 </script>
