@@ -48,33 +48,29 @@ export default {
     return {
       data: {},
       users: {},
-      user_id: '',
+      user_id: "",
     };
   },
   mounted() {
-    try {
-      window.onload = async () => {
-        // eslint-disable-next-line no-unused-vars
-        const {
-          data: { user },
-          error: errUser,
-        } = await supabase.auth.getUser();
-        if (errUser) {
-          alert("Please login first");
-        } else {
-          this.users = user;
-          this.user_id = user.id
-        }
-        // eslint-disable-next-line no-unused-vars
-        let { data: dataNotes, error } = await supabase
-          .from("notes")
-          .select("*")
-          .eq("user_id", this.user_id);
-        this.data = dataNotes;
-      };
-    } catch (error) {
-      console.log(error);
-    }
+    window.onload = async () => {
+      // eslint-disable-next-line no-unused-vars
+      const {
+        data: { user },
+        error: errUser,
+      } = await supabase.auth.getUser();
+      if (errUser) {
+        alert("Please login first");
+      } else {
+        this.users = user;
+        this.user_id = user.id;
+      }
+      // eslint-disable-next-line no-unused-vars
+      let { data: dataNotes, error } = await supabase
+        .from("notes")
+        .select("*")
+        .eq("user_id", this.user_id);
+      this.data = dataNotes;
+    };
   },
 };
 </script>
