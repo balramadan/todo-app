@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TodoView from '../views/TodoView.vue'
 // import LoginView from '../views/LoginView.vue'
-import ListView from '../views/ListView.vue'
+// import ListView from '../views/ListView.vue'
 // import VerifyView from '../views/VerifyView.vue'
 
 const router = createRouter({
@@ -20,7 +20,7 @@ const router = createRouter({
     {
       path: '/list',
       name: 'list',
-      component: ListView
+      component: () => import('../views/ListView.vue')
     },
     {
       path: '/logout',
