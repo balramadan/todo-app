@@ -6,31 +6,34 @@
     <div
       class="container-todo flex flex-col mx-auto justify-center items-center"
     >
-      <h1 class="text-4xl font-bold">
+      <h1 class="text-2xl sm:text-4xl font-bold">
         <span v-if="full_name != null" class="text-sky-500">{{
           full_name
         }}</span>
         Notes
       </h1>
       <div class="my-4">
-        <form class="flex flex-row shadow-sm" @submit.prevent="addTodo">
+        <form
+          class="flex flex-col sm:flex-row shadow-sm w-72 sm:w-full"
+          @submit.prevent="addTodo"
+        >
           <div class="flex flex-col">
             <input
               v-model.lazy="inputTitle"
-              class="py-2 px-3 w-96 rounded-tl-lg bg-slate-100 focus:outline-none border-2"
+              class="py-2 px-3 w-full sm:w-96 rounded-tl-lg rounded-tr-lg sm:rounded-tr-none bg-slate-100 focus:outline-none border-2"
               type="text"
               placeholder="Title"
             />
             <input
               v-model.lazy="inputDesc"
-              class="py-0 px-3 w-96 h-24 rounded-bl-lg bg-slate-100 focus:outline-none border-2"
+              class="py-0 px-3 w-full sm:w-96 h-24 sm:rounded-bl-lg bg-slate-100 focus:outline-none border-2"
               type="text"
               placeholder="Description"
             />
           </div>
           <div class="flex flex-col">
             <a
-              class="tooltip tooltip-right flex h-10 w-full py-1 mx-auto justify-center items-center rounded-tr-lg text-white text-center bg-sky-300 hover:bg-sky-500"
+              class="order-last sm:order-first tooltip tooltip-bottom sm:tooltip-right flex h-10 w-full py-1 mx-auto justify-center items-center rounded-bl-lg rounded-br-lg sm:rounded-bl-none sm:rounded-br-none sm:rounded-tr-lg text-white text-center bg-sky-300 hover:bg-sky-500"
               data-tip="View List"
               href="/list"
               ><svg
@@ -45,7 +48,7 @@
                 /></svg
             ></a>
             <input
-              class="py-2 px-3 h-full rounded-br-lg bg-gradient-to-r from-sky-300 to-sky-400 hover:from-sky-500 hover:to-sky-600 transition-colors duration-300 text-white font-bold hover:cursor-pointer"
+              class="py-2 px-3 h-full sm:rounded-br-lg bg-gradient-to-r from-sky-300 to-sky-400 hover:from-sky-500 hover:to-sky-600 transition-colors duration-300 text-white font-bold hover:cursor-pointer"
               type="submit"
               value="Submit"
             />
