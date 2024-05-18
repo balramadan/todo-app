@@ -30,7 +30,8 @@
           </div>
           <div class="flex flex-col">
             <a
-              class="flex h-10 w-full py-1 mx-auto justify-center items-center rounded-tr-lg text-white text-center bg-sky-300 hover:bg-sky-500"
+              class="tooltip tooltip-right flex h-10 w-full py-1 mx-auto justify-center items-center rounded-tr-lg text-white text-center bg-sky-300 hover:bg-sky-500"
+              data-tip="View List"
               href="/list"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,6 +52,7 @@
           </div>
         </form>
       </div>
+      <a href="/logout" class="text-sky-400">Logout</a>
     </div>
     <div class="text-center text-slate-400">
       Copyright {{ copyright }}. BalApp
@@ -104,6 +106,13 @@ export default {
       if (errUser) {
         alert("Please login first");
         window.location.href = "http://app.balramadan.xyz/loginTodo";
+        // eslint-disable-next-line no-unused-vars
+        // const { data, error } = await supabase.auth.signInWithOAuth({
+        //   provider: "github",
+        //   options: {
+        //     redirectTo: "http://localhost:5173"
+        //   }
+        // })
       } else {
         this.users = user;
         this.full_name = user.user_metadata.full_name;

@@ -15,7 +15,7 @@ export default {
     function redirectToHome() {
         window.location.href = '/';
     }
-    setInterval(redirectToHome, 4000)
+    setInterval(redirectToHome, 2000)
   },
 };
 </script>
